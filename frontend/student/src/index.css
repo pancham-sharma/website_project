@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #fbf9f9;
+    --foreground: #1b1c1c;
+    --primary: #000000;
+    --primary-foreground: #ffffff;
+    --secondary: #5f5e5e;
+    --secondary-foreground: #ffffff;
+    --muted: #f5f3f3;
+    --muted-foreground: #4c4546;
+    --accent: #222222;
+    --accent-foreground: #ffffff;
+    --destructive: #ba1a1a;
+    --destructive-foreground: #ffffff;
+    --border: #e3e2e2;
+    --input: #dbdad9;
+    --ring: #000000;
+    --radius: 0.25rem;
+    /* Extended tokens used across student pages */
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f5f3f3;
+    --surface-container: #eeecec;
+    --surface-variant: #e5e4e4;
+    --outline: #888888;
+    --outline-variant: #aaaaaa;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom utilities for student pages using CSS variables */
+@layer utilities {
+  .bg-background { background-color: var(--background); }
+  .bg-surface-container-lowest { background-color: var(--surface-container-lowest); }
+  .bg-surface-container-low { background-color: var(--surface-container-low); }
+  .bg-surface-container { background-color: var(--surface-container); }
+  .bg-surface-variant { background-color: var(--surface-variant); }
+  .bg-primary { background-color: var(--primary); }
+  .bg-accent { background-color: var(--accent); }
+  .bg-muted { background-color: var(--muted); }
+
+  .text-foreground { color: var(--foreground); }
+  .text-primary { color: var(--primary); }
+  .text-secondary { color: var(--secondary); }
+  .text-muted-foreground { color: var(--muted-foreground); }
+  .text-outline { color: var(--outline); }
+  .text-outline-variant { color: var(--outline-variant); }
+  .text-primary-foreground { color: var(--primary-foreground); }
+  .text-accent-foreground { color: var(--accent-foreground); }
+
+  .border-border { border-color: var(--border); }
+  .border-primary { border-color: var(--primary); }
+
+  .ring-primary { --tw-ring-color: var(--primary); }
+
+  .hover\:bg-accent:hover { background-color: var(--accent); }
+  .hover\:bg-surface-container:hover { background-color: var(--surface-container); }
+  .focus\:border-primary:focus { border-color: var(--primary); }
+  .focus\:ring-primary:focus { --tw-ring-color: var(--primary); }
+  .focus\:ring-surface-variant:focus { --tw-ring-color: var(--surface-variant); }
+
+  /* Typography tokens */
+  .text-display-sm { font-size: 2rem; line-height: 1.2; }
+  .text-display-md { font-size: 2.5rem; line-height: 1.1; }
+  .text-title-lg { font-size: 1.25rem; line-height: 1.4; }
+  .text-title-md { font-size: 1.1rem; line-height: 1.4; }
+  .text-body-lg { font-size: 1rem; line-height: 1.6; }
+  .text-body-md { font-size: 0.875rem; line-height: 1.6; }
+  .text-label-lg { font-size: 0.875rem; font-weight: 600; }
+
+  /* Scrollbar */
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
