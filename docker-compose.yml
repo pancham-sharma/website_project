@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: studyhub
-      POSTGRES_USER: studyhub_user
-      POSTGRES_PASSWORD: studyhub_password
+      POSTGRES_DB: ${POSTGRES_DB:-educare_db}
+      POSTGRES_USER: ${POSTGRES_USER:-educare_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Database password must be set in .env}
     ports:
       - "5432:5432"
     volumes:
@@ -26,10 +26,8 @@ services:
       - ./backend:/app
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgres://studyhub_user:studyhub_password@db:5432/studyhub
-      - REDIS_URL=redis://redis:6379/1
-      - DEBUG=1
+    env_file:
+      - ./backend/.env
     depends_on:
       - db
       - redis
